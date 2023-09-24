@@ -13,7 +13,7 @@ const app = express();
 app.use(
     cors({
         credentials: true,
-        origin: ['https://frontend.unknownclub.me', 'http://localhost:5173', 'https://registration-mlsa-client.vercel.app/'],
+        origin: ['https://frontend.unknownclub.me', 'http://localhost:5173', 'https://registration-mlsa-client.vercel.app'],
     })
 );
 // app.use(cors())
