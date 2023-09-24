@@ -148,6 +148,10 @@ const registrationSchema = new Schema({
         required: [true, "Please consent to continue"]
 
     },
+    age:{
+        type: Number,
+        required: [true, "Please specify your age"]
+    },
     ip: {
         type: String,
     },
@@ -165,7 +169,7 @@ const reg = model('registration', registrationSchema);
 //API Endpoints for registrations
 app.post("/api/register", async (req, res) => {
     try {
-        const { name, rollNumber, currentYear, branch, kiitEmailId, personalEmailId, phoneNumber, interestedField, linkedin, github, expectation, checkbox } = req.body;
+        const { name, rollNumber, currentYear, branch, kiitEmailId, personalEmailId, phoneNumber, interestedField, linkedin, github, expectation, checkbox, age } = req.body;
         const ip = req.ip;
         const host = req.get('host');
         const userAgent = req.get('user-agent');
@@ -176,7 +180,7 @@ app.post("/api/register", async (req, res) => {
         
         const registration = new reg({
             name, rollNumber, currentYear, branch, kiitEmailId, personalEmailId, phoneNumber, interestedField, linkedin, github, expectation,
-            checkbox,
+            checkbox,age,
             ip,
             host,
             userAgent,
